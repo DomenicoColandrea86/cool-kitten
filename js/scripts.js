@@ -24,7 +24,7 @@ jQuery(document).ready(function ($) {
     });
  
     mywindow.scroll(function () {
-        if (mywindow.scrollTop() == 0) {
+        if (mywindow.scrollTop() === 0) {
             $('.navigation li[data-slide="1"]').addClass('active');
             $('.navigation li[data-slide="2"]').removeClass('active');
         }
