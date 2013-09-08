@@ -31,20 +31,29 @@ jQuery(document).ready(function ($) {
     });
 
     function goToByScroll(dataslide) {
-        htmlbody.animate({
-            scrollTop: $('.slide[data-slide="' + dataslide + '"]').offset().top
-        }, 2000, 'easeInOutQuint');
-    }
+        var currentPosition = -1*($('html').offset().top);
+        var clickedPosition = $('.slide[data-slide="' + dataslide + '"]').offset().top + 20;
+            if ( clickedPosition>currentPosition ) {
+            htmlbody.stop().animate ( {
+              scrollTop: $('.slide[data-slide="' + dataslide + '"]').offset().top + 20
+            }, 2000, 'easeInOutQuint');
+        } else {
+            console.log("up");
+            htmlbody.animate ( {
+              scrollTop: $('.slide[data-slide="' + dataslide + '"]').offset().top
+            }, 2000, 'easeInOutQuint'); 
+        }
+      }
 
 
 
-    links.click(function (e) {
+    links.on("click", function (e) {
         e.preventDefault();
         dataslide = $(this).attr('data-slide');
         goToByScroll(dataslide);
     });
 
-    button.click(function (e) {
+    button.on("click", function (e) {
         e.preventDefault();
         dataslide = $(this).attr('data-slide');
         goToByScroll(dataslide);
