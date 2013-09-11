@@ -95,7 +95,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-usemin');
 
 
-  // Default task.
+  // Default task || grunt grunt watch
   grunt.registerTask('default', 'watch');
 
   // build task.
